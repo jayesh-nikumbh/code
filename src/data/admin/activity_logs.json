@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "ip": "192.168.1.105",
+    "username": "Priti Sharma",
+    "timestamp": "Mar 2, 2026 02:15 PM",
+    "action": "Exported attendance report"
+  },
+  {
+    "id": 2,
+    "ip": "192.168.1.175",
+    "username": "Sneha Verma",
+    "timestamp": "Mar 2, 2026 03:45 PM",
+    "action": "Updated profile information"
+  },
+  {
+    "id": 3,
+    "ip": "192.168.1.105",
+    "username": "Priti Sharma",
+    "timestamp": "Mar 2, 2026 04:20 PM",
+    "action": "Added new assignment: API Integration Task"
+  },
+  {
+    "id": 4,
+    "ip": "192.168.1.189",
+    "username": "Arjun Singh",
+    "timestamp": "Mar 2, 2026 11:30 AM",
+    "action": "Earned badge: Code Master"
+  },
+  {
+    "id": 5,
+    "ip": "192.168.1.105",
+    "username": "Priti Sharma",
+    "timestamp": "Mar 3, 2026 08:45 AM",
+    "action": "Generated QR code for attendance"
+  },
+  {
+    "id": 6,
+    "ip": "192.168.1.142",
+    "username": "Aarav Sharma",
+    "timestamp": "Mar 3, 2026 09:15 AM",
+    "action": "Submitted assignment: React Basics Project"
+  },
+  {
+    "id": 7,
+    "ip": "192.168.1.158",
+    "username": "Priya Patel",
+    "timestamp": "Mar 3, 2026 09:20 AM",
+    "action": "Marked attendance via QR code"
+  },
+  {
+    "id": 8,
+    "ip": "192.168.1.105",
+    "username": "Priti Sharma",
+    "timestamp": "Mar 3, 2026 10:35 AM",
+    "action": "Blocked student: Rohit Kumar"
+  },
+  {
+    "id": 9,
+    "ip": "192.168.1.105",
+    "username": "Priti Sharma",
+    "timestamp": "Mar 3, 2026 10:32 AM",
+    "action": "Viewed student list"
+  }
+]

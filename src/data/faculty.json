@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Mr. Rahul Kumar",
+        "role": "Teacher",
+        "email": "rahulkumar09@gmail.com",
+        "contact": "9096878804"
+    },
+    {
+        "id": 2,
+        "name": "Ms. Priti Malhotra",
+        "role": "Admin",
+        "email": "pritimalhotra84@gmail.com",
+        "contact": "9710048238"
+    }
+]

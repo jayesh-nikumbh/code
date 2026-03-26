@@ -1,0 +1,42 @@
+{
+  "markedDates": {
+    "Saturday, March 14, 2026": "current",
+    "Sunday, March 15, 2026": "holiday",
+    "Saturday, March 21, 2026": "holiday",
+    "Wednesday, March 25, 2026": "session"
+  },
+  "activities": [
+    {
+      "id": 1,
+      "type": "holiday",
+      "text": "Admin declared Saturday, March 21 as Holiday",
+      "time": "Mar 14, 2026 at 10:15 PM",
+      "iconColor": "text-orange-500",
+      "iconBg": "bg-orange-50"
+    },
+    {
+      "id": 2,
+      "type": "assignment",
+      "text": "Student Rahul submitted \"Data Structures Assignment 2\"",
+      "time": "Mar 5, 2026 at 10:30 AM",
+      "iconColor": "text-blue-500",
+      "iconBg": "bg-blue-50"
+    },
+    {
+      "id": 3,
+      "type": "attendance",
+      "text": "Ananya marked attendance for Session 12",
+      "time": "Mar 5, 2026 at 9:15 AM",
+      "iconColor": "text-emerald-500",
+      "iconBg": "bg-emerald-50"
+    },
+    {
+      "id": 4,
+      "type": "announcement",
+      "text": "Teacher posted a new announcement",
+      "time": "Mar 4, 2026 at 2:20 PM",
+      "iconColor": "text-purple-500",
+      "iconBg": "bg-purple-50"
+    }
+  ]
+}

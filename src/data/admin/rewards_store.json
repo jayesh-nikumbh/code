@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "image": "/rewards/smartwatch.png",
+    "title": "Smartwatch",
+    "points": 8000,
+    "description": "Stay connected and track your fitness with this stylish smartwatch."
+  },
+  {
+    "id": 2,
+    "image": "/rewards/speaker.png",
+    "title": "Bluetooth Speaker",
+    "points": 6500,
+    "description": "Portable speaker with high-quality sound for your music on the go."
+  },
+  {
+    "id": 3,
+    "image": "/rewards/mouse.png",
+    "title": "Gaming Mouse",
+    "points": 4500,
+    "description": "High-precision gaming mouse with customizable RGB lighting."
+  },
+  {
+    "id": 4,
+    "image": "/rewards/earbuds.png",
+    "title": "Wireless Earbuds",
+    "points": 5000,
+    "description": "True wireless earbuds with noise cancellation and long battery life."
+  },
+  {
+    "id": 5,
+    "image": "/rewards/giftcard.png",
+    "title": "Amazon Gift Card",
+    "points": 3000,
+    "description": "Shop for your favorite items on Amazon with this Rs. 500 gift card."
+  }
+]

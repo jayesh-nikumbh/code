@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "type": "grade",
+    "title": "Python Programming Task has been graded",
+    "time": "2026-03-08 15:30",
+    "isSeen": false
+  },
+  {
+    "id": 2,
+    "type": "deadline",
+    "title": "Web Development Lecture scheduled for tomorrow at 9:00 AM",
+    "time": "2026-03-08 14:00",
+    "isSeen": false
+  },
+  {
+    "id": 3,
+    "type": "resource",
+    "title": "New feedback received on Database Design Assignment",
+    "time": "2026-03-07 16:45",
+    "isSeen": false
+  },
+  {
+    "id": 4,
+    "type": "cancelled",
+    "title": "Machine Learning lab session cancelled for 10th March",
+    "time": "2026-03-07 10:00",
+    "isSeen": false
+  }
+]

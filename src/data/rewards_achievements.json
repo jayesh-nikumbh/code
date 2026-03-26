@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "icon": "Trophy",
+    "iconColorClass": "text-yellow-500",
+    "iconBgClass": "bg-yellow-100",
+    "title": "Perfect Attendance",
+    "description": "Attended all classes for a month",
+    "isEarned": true,
+    "dateEarned": "Feb 2026",
+    "progress": 100
+  },
+  {
+    "id": 2,
+    "icon": "Star",
+    "iconColorClass": "text-purple-500",
+    "iconBgClass": "bg-purple-100",
+    "title": "Top Performer",
+    "description": "Scored above 90% in 5 assignments",
+    "isEarned": true,
+    "dateEarned": "Jan 2026",
+    "progress": 100
+  },
+  {
+    "id": 3,
+    "icon": "Award",
+    "iconColorClass": "text-blue-500",
+    "iconBgClass": "bg-blue-100",
+    "title": "Early Bird",
+    "description": "Submitted 10 assignments before deadline",
+    "isEarned": true,
+    "dateEarned": "Dec 2025",
+    "progress": 100
+  },
+  {
+    "id": 4,
+    "icon": "Medal",
+    "iconColorClass": "text-gray-400",
+    "iconBgClass": "bg-gray-100 dark:bg-gray-800",
+    "title": "Team Player",
+    "description": "Completed 5 group projects",
+    "isEarned": false,
+    "progress": 60
+  },
+  {
+    "id": 5,
+    "icon": "Flame",
+    "iconColorClass": "text-gray-400",
+    "iconBgClass": "bg-gray-100 dark:bg-gray-800",
+    "title": "Streak Master",
+    "description": "Maintain a 4-week attendance streak",
+    "isEarned": false,
+    "progress": 75
+  },
+  {
+    "id": 6,
+    "icon": "Award",
+    "iconColorClass": "text-gray-400",
+    "iconBgClass": "bg-gray-100 dark:bg-gray-800",
+    "title": "Knowledge Seeker",
+    "description": "Complete 20 optional quizzes",
+    "isEarned": false,
+    "progress": 40
+  }
+]

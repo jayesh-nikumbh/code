@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Algorithm Analysis Report",
+    "desc": "Analyze time complexity of sorting algorithms",
+    "submitted": 28,
+    "total": 32,
+    "remaining": 4,
+    "date": "Feb 28, 2026"
+  },
+  {
+    "id": 2,
+    "title": "Database Design Project",
+    "desc": "Design a relational database for e-ecommerce",
+    "submitted": 25,
+    "total": 32,
+    "remaining": 7,
+    "date": "Mar 01, 2026"
+  },
+  {
+    "id": 3,
+    "title": "Web Development Final",
+    "desc": "Create a responsive web application",
+    "submitted": 30,
+    "total": 32,
+    "remaining": 2,
+    "date": "Mar 05, 2026"
+  }
+]

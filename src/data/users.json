@@ -1,0 +1,24 @@
+[
+  {
+    "email": "jnikumbh69@gmail.com",
+    "password": "password123",
+    "name": "jayesh nikumbh",
+    "role": "student",
+    "course": "TYBCA",
+    "status": "active"
+  },
+  {
+    "email": "admin@example.com",
+    "password": "adminpassword",
+    "name": "Admin User",   
+    "role": "admin",
+    "status": "active"
+  },
+  {
+    "email": "teacher@example.com",
+    "password": "teacherpassword",
+    "name": "Teacher User",
+    "role": "teacher",
+    "status": "active"
+  }
+]

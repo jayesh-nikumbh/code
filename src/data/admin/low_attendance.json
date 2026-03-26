@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Rohit Kumar",
+    "initials": "RK",
+    "attendance": 68
+  },
+  {
+    "id": 2,
+    "name": "Ananya Roy",
+    "initials": "AR",
+    "attendance": 72
+  },
+  {
+    "id": 3,
+    "name": "Siddharth Rao",
+    "initials": "SR",
+    "attendance": 70
+  }
+]

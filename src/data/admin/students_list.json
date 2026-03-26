@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "Aarav Sharma", "username": "@aarav07", "email": "aaravsharma07@gmail.com", "course": "TY BSc CS", "status": "active", "performance": "85%", "attendance": "90%", "badges": 6 },
+  { "id": 2, "name": "Diya Patel", "username": "@diya88", "email": "diya.patel@example.com", "course": "TY BSc CS", "status": "active", "performance": "88%", "attendance": "93%", "badges": 7 },
+  { "id": 3, "name": "Rohan Mehta", "username": "@rohan_m", "email": "rohan.mehta@example.com", "course": "TY BSc CS", "status": "active", "performance": "85%", "attendance": "90%", "badges": 6 },
+  { "id": 4, "name": "Ananya Singh", "username": "@ananya_s", "email": "ananya.singh@example.com", "course": "SY BSc IT", "status": "blocked", "performance": "72%", "attendance": "78%", "badges": 3 },
+  { "id": 5, "name": "Kunal Verma", "username": "@kunal_v", "email": "kunal.verma@example.com", "course": "TY BSc CS", "status": "active", "performance": "91%", "attendance": "95%", "badges": 9 },
+  { "id": 6, "name": "Priya Nair", "username": "@priya_n", "email": "priya.nair@example.com", "course": "SY BSc IT", "status": "active", "performance": "79%", "attendance": "82%", "badges": 5 },
+  { "id": 7, "name": "Siddharth Rao", "username": "@sid_rao", "email": "siddharth.rao@example.com", "course": "FY BSc CS", "status": "blocked", "performance": "65%", "attendance": "70%", "badges": 2 },
+  { "id": 8, "name": "Meera Joshi", "username": "@meera_j", "email": "meera.joshi@example.com", "course": "TY BSc CS", "status": "active", "performance": "93%", "attendance": "97%", "badges": 10 }
+]

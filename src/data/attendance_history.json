@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Computer Science 301",
+        "time": "Mar 13, 2026",
+        "status": "Present",
+        "month": "March"
+    },
+    {
+        "id": 2,
+        "name": "Information Systems 202",
+        "time": "Mar 11, 2026",
+        "status": "Present",
+        "month": "March"
+    },
+    {
+        "id": 3,
+        "name": "Software Engineering 304",
+        "time": "Mar 09, 2026",
+        "status": "Present",
+        "month": "March"
+    },
+    {
+        "id": 4,
+        "name": "Database Management 203",
+        "time": "Mar 06, 2026",
+        "status": "Absent",
+        "month": "March"
+    },
+    {
+        "id": 5,
+        "name": "Web Development 101",
+        "time": "Feb 28, 2026",
+        "status": "Present",
+        "month": "February"
+    },
+    {
+        "id": 6,
+        "name": "Mathematics II",
+        "time": "Feb 25, 2026",
+        "status": "Present",
+        "month": "February"
+    },
+    {
+        "id": 7,
+        "name": "Digital Logic Design",
+        "time": "Feb 20, 2026",
+        "status": "Absent",
+        "month": "February"
+    },
+    {
+        "id": 8,
+        "name": "Discrete Structures",
+        "time": "Jan 15, 2026",
+        "status": "Present",
+        "month": "January"
+    }
+]

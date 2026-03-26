@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Aarav Sharma",
+    "timestamp": "March 11, 2026, 09:15 AM",
+    "status": "Present",
+    "month": "March"
+  },
+  {
+    "id": 2,
+    "name": "Diya Patel",
+    "timestamp": "March 11, 2026, 09:10 AM",
+    "status": "Present",
+    "month": "March"
+  },
+  {
+    "id": 3,
+    "name": "Rohan Mehta",
+    "timestamp": "March 11, 2026, 09:20 AM",
+    "status": "Present",
+    "month": "March"
+  },
+  {
+    "id": 4,
+    "name": "Ananya Singh",
+    "timestamp": "March 11, 2026, -",
+    "status": "Absent",
+    "month": "March"
+  },
+  {
+    "id": 5,
+    "name": "Kunal Verma",
+    "timestamp": "March 11, 2026, 09:18 AM",
+    "status": "Present",
+    "month": "March"
+  },
+  {
+    "id": 6,
+    "name": "Priya Desai",
+    "timestamp": "March 11, 2026, 09:12 AM",
+    "status": "Present",
+    "month": "March"
+  }
+]

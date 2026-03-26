@@ -1,0 +1,13 @@
+{
+  "summary": {
+    "present": 4,
+    "absent": 1,
+    "overall": "80%"
+  },
+  "trendData": [
+    { "name": "Feb 03", "value": 91, "status": "Present" },
+    { "name": "Feb 10", "value": 97, "status": "Present" },
+    { "name": "Feb 17", "value": 75, "status": "Absent" },
+    { "name": "Feb 24", "value": 93, "status": "Present" }
+  ]
+}
