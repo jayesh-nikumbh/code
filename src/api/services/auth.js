@@ -2,8 +2,8 @@ import axios from 'axios';
 import { API_CONFIG } from '../config';
 
 /**
- * Auth API Service
- */
+  Auth API Service
+*/
 const authService = {
   login: async (email, password) => {
     // --- MOCK LOGIN LOGIC ---
@@ -26,17 +26,18 @@ const authService = {
 
     // --- REAL API CALL ---
     try {
-      const response = await axios.post(`${API_CONFIG.BASE_URL}/auth/login`, {
-        email,
-        password,
+      // Backend usually accepts 'username' for both username and email logins
+      const response = await axios.post(`${API_CONFIG.BASE_URL}/login`, {
+        username: email, // the variable is called 'email' in frontend, but could contain username too
+        password: password,
       });
       return response.data;
     } catch (error) {
-      throw error.response?.data?.message || "Login failed.";
+      throw error.response?.data?.error || error.response?.data?.detail || error.response?.data?.message || "Login failed. Please check your credentials.";
     }
   },
 
-  forgotPassword: async (username) => {
+  forgotPassword: async () => {
     // --- MOCK FORGOT PASSWORD LOGIC ---
     if (API_CONFIG.IS_MOCK) {
       return new Promise((resolve) => {

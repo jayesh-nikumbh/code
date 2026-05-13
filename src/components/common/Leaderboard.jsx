@@ -78,7 +78,7 @@ export default function Leaderboard() {
                 >
                   <div className="overflow-hidden">
                     <div
-                      className={`flex items-center gap-3 p-3 rounded-xl border transition-all hover:shadow-md ${getRankBg(user.rank)} ${isHidden ? 'border-transparent py-0 my-0' : ''}`}
+                      className={`flex items-center gap-3 p-3 rounded-xl border transition-all duration-300 hover:shadow-xl hover-lift hover:scale-[1.02] ${getRankBg(user.rank)} ${isHidden ? 'border-transparent py-0 my-0' : ''}`}
                     >
                       <div className="flex items-center gap-2 min-w-6">
                         {getRankIcon(user.rank) || (
@@ -113,7 +113,7 @@ export default function Leaderboard() {
       {!loading && leaderboardData.length > 4 && (
         <button
           onClick={() => setLeaderboardExpanded(!leaderboardExpanded)}
-          className="w-full mt-3 py-2 text-sm text-[#0B1957] dark:text-[#9ECCFA] hover:bg-[#F8F3EA] dark:hover:bg-[#1d3270] rounded-lg transition-all flex items-center justify-center gap-1"
+          className="w-full mt-3 py-2 text-sm text-[#0B1957] dark:text-[#9ECCFA] hover:bg-[#F8F3EA] dark:hover:bg-[#1d3270] rounded-lg transition-all flex items-center justify-center gap-1 cursor-pointer"
         >
           {leaderboardExpanded ? (
             <>Show Less <ChevronUp className="w-4 h-4" /></>

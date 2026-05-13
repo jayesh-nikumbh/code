@@ -22,7 +22,7 @@ export default function AdminDashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
+    const savedUser = sessionStorage.getItem("user");
     if (savedUser) {
       setUser(JSON.parse(savedUser));
     }
@@ -41,7 +41,9 @@ export default function AdminDashboardPage() {
     fetchStats();
   }, []);
 
-  const isTeacher = user?.role?.toLowerCase() === "teacher";
+  const role = user?.role?.toLowerCase();
+  const isAdmin = role === "admin";
+  const isTeacher = role === "teacher";
 
   return (
     <div className="max-w-400 mx-auto px-8 py-8 space-y-6">
@@ -79,8 +81,8 @@ export default function AdminDashboardPage() {
         />
       </div>
 
-      {/* Admin Action Cards - Hidden for Teacher */}
-      {!isTeacher && (
+      {/* Admin Action Cards - Only for Admin */}
+      {isAdmin && (
         <div className="grid grid-cols-2 lg:grid-cols-2 gap-6">
           <div onClick={() => setShowAddUser(true)} className="bg-white dark:bg-[#152561] rounded-2xl p-6 border border-gray-100 dark:border-white/10 shadow-sm hover:shadow-md transition-all cursor-pointer">
             <div className="flex items-center gap-4">

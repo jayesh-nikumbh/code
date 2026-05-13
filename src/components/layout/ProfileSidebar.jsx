@@ -149,7 +149,7 @@ export default function ProfileSidebar({
             await profileService.updateProfile(updatedUser);
 
             setUser(updatedUser);
-            localStorage.setItem("user", JSON.stringify(updatedUser));
+            sessionStorage.setItem("user", JSON.stringify(updatedUser));
             setIsEditing(false);
             CustomToast.success("Profile updated successfully!");
         } catch (error) {
@@ -188,7 +188,7 @@ export default function ProfileSidebar({
             // Logic to update password TEMPORARILY for the current session inline
             const updatedUser = { ...user, password: newTrimmed };
             setUser(updatedUser);
-            localStorage.setItem("user", JSON.stringify(updatedUser));
+            sessionStorage.setItem("user", JSON.stringify(updatedUser));
 
             CustomToast.success("Password updated successfully! 🎉");
             setShowChangePassword(false);
@@ -271,8 +271,27 @@ export default function ProfileSidebar({
                         className="flex flex-col items-center py-8"
                     >
                         <div className="relative group">
-                            <div className="w-28 h-28 rounded-full bg-[#D1E8FF] dark:bg-[#1E347F]/40 flex items-center justify-center border-4 border-white dark:border-[#1E347F] shadow-lg">
-                                <User className="w-12 h-12 text-[#14245C] dark:text-[#9ECCFA]" />
+                            <div className={`
+                                profile-aura-container transition-all duration-500 scale-125
+                                ${user?.role?.toLowerCase() === 'admin' ? 'aura-admin' : user?.role?.toLowerCase() === 'teacher' ? 'aura-teacher' : 'aura-student'}
+                            `}>
+                                {/* Animated Ring */}
+                                <div className="aura-ring"></div>
+                                
+                                {/* Role Pulse (Student Only) */}
+                                {user?.role?.toLowerCase() === 'student' && <div className="aura-student-pulse"></div>}
+
+                                <div className="relative w-28 h-28 rounded-full bg-[#D1E8FF] dark:bg-[#1E347F] flex items-center justify-center border-4 border-white dark:border-[#1E347F] shadow-lg z-10 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                                    <span className="text-3xl font-black text-[#14245C] dark:text-[#9ECCFA] tracking-tighter">
+                                        {getInitials(user?.name)}
+                                    </span>
+                                    
+                                    {/* Floating Role Indicator Orb */}
+                                    <div className={`
+                                        absolute top-2 right-2 w-4 h-4 rounded-full border-2 border-white dark:border-[#0B1957] shadow-sm
+                                        ${user?.role?.toLowerCase() === 'admin' ? 'bg-amber-400' : user?.role?.toLowerCase() === 'teacher' ? 'bg-cyan-400' : 'bg-blue-400'}
+                                    `}></div>
+                                </div>
                             </div>
                         </div>
                         <p className="mt-4 text-sm font-bold text-gray-500 dark:text-gray-400">
@@ -376,13 +395,13 @@ export default function ProfileSidebar({
                 >
                     <button
                         onClick={() => setShowChangePassword(true)}
-                        className="flex-1 py-3 px-4 rounded-[16px] border border-gray-200 dark:border-white/10 bg-white dark:bg-[#152561] text-[#0B1957] dark:text-white font-bold text-sm tracking-wide hover:bg-gray-50 dark:hover:bg-white/5 transition-all shadow-sm"
+                        className="flex-1 py-3 px-4 rounded-[16px] border border-gray-200 dark:border-white/10 bg-white dark:bg-[#152561] text-[#0B1957] dark:text-white font-bold text-sm tracking-wide hover:bg-gray-50 dark:hover:bg-white/10 transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
                     >
                         Change Password
                     </button>
                     <button
                         onClick={() => setShowLogoutModal(true)}
-                        className="flex-1 py-3 px-4 rounded-[16px] bg-[#0B1957] dark:bg-[#1E347F] text-white font-bold text-sm tracking-wide hover:bg-[#152561] dark:hover:bg-[#243C94] transition-all shadow-lg flex items-center justify-center gap-3"
+                        className="flex-1 py-3 px-4 rounded-[16px] bg-[#0B1957] dark:bg-[#1E347F] text-white font-bold text-sm tracking-wide hover:bg-[#152561] dark:hover:bg-[#243C94] transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3"
                     >
                         <LogOut size={18} />
                         Logout
@@ -425,7 +444,8 @@ export default function ProfileSidebar({
 
                             <button
                                 onClick={() => {
-                                    localStorage.removeItem("user");
+                                    sessionStorage.removeItem("user");
+                                    sessionStorage.removeItem("token");
                                     navigate("/");
                                 }}
                                 className="py-2.5 px-6 bg-[#0B1957] dark:bg-[#1E347F] text-white rounded-xl hover:bg-[#152561] dark:hover:bg-[#243C94] transition-all shadow-md font-bold text-sm"

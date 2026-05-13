@@ -69,7 +69,15 @@ export default function LoginPage() {
       setIsLoading(false);
 
       // On success, handle tokens or user data if necessary
-      localStorage.setItem('user', JSON.stringify(data.user));
+      if (data.token || data.access) {
+        sessionStorage.setItem('token', data.token || data.access);
+      }
+      if (data.user) {
+        // Clear old session data first to prevent role mismatch
+        sessionStorage.removeItem('user');
+        sessionStorage.removeItem('token');
+        sessionStorage.setItem('user', JSON.stringify(data.user));
+      }
 
       CustomToast.success("Login successful! Welcome back 🎉");
 
@@ -101,7 +109,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           {/*Logo*/}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#0B1957] dark:bg-[#9ECCFA] rounded-2xl mb-4 shadow-md hover:scale-105 transition-transform">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#0B1957] dark:bg-[#9ECCFA] rounded-2xl mb-4 shadow-md hover:scale-110 hover:shadow-xl hover:rotate-3 transition-all duration-500 hover-glow cursor-pointer">
               <svg
                 className="w-9 h-9 text-white dark:text-[#0B1957]"
                 fill="none"
@@ -186,7 +194,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 bg-[#0B1957] dark:bg-[#9ECCFA] text-white dark:text-[#0B1957] rounded-xl transition-all shadow-md font-medium flex items-center justify-center gap-2 hover:bg-[#152561] dark:hover:bg-[#b8dcfc] hover:shadow-lg ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
+                className={`w-full py-3 bg-[#0B1957] dark:bg-[#9ECCFA] text-white dark:text-[#0B1957] rounded-xl transition-all duration-300 shadow-md font-bold flex items-center justify-center gap-2 hover:bg-[#152561] dark:hover:bg-[#b8dcfc] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] hover-glow ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
               >
                 {isLoading ? (
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white dark:border-[#0B1957]/30 dark:border-t-[#0B1957] rounded-full animate-spin" />

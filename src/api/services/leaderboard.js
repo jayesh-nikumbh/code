@@ -13,7 +13,7 @@ const leaderboardService = {
 
         // --- REAL API CALL ---
         // Replace with actual endpoint when backend is ready
-        const response = await axios.get(`${API_CONFIG.BASE_URL}/leaderboard`);
+        const response = await axios.get(`${API_CONFIG.BASE_URL}/leaderboard/`);
         return response.data;
     },
 };

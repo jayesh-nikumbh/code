@@ -9,11 +9,18 @@ export default function Layout() {
 
     useEffect(() => {
         const checkStatus = async () => {
-            const userData = localStorage.getItem('user');
+            const userData = sessionStorage.getItem('user');
             if (userData) {
                 const user = JSON.parse(userData);
+                const role = user?.role?.toLowerCase();
+
+                // If logged in as admin/teacher but trying to access student routes, kick to admin dashboard
+                if (role === "admin" || role === "teacher") {
+                    navigate("/admin/dashboard");
+                    return;
+                }
                 
-                // Mock dynamic check from users.json
+                // Mock dynamic check from users.json for blocked status
                 try {
                     const { default: mockUsers } = await import('../../data/users.json');
                     const currentUser = mockUsers.find(u => u.email === user.email);
@@ -26,16 +33,23 @@ export default function Layout() {
                 } catch (error) {
                     console.error("Failed to check user status:", error);
                 }
+            } else {
+                // Not logged in at all
+                navigate("/");
             }
         };
 
         checkStatus();
         
-        // Optional: In a real app, you might poll this or use a socket
-    }, []);
+        const interval = setInterval(checkStatus, 2000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [navigate]);
 
     const handleRedirectToLogin = () => {
-        localStorage.removeItem('user'); // Clear data
+        sessionStorage.removeItem('user'); // Clear data
         navigate('/');
     };
 

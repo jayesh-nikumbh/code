@@ -9,14 +9,14 @@
   },
   {
     "email": "admin@example.com",
-    "password": "adminpassword",
+    "password": "password123",
     "name": "Admin User",   
     "role": "admin",
     "status": "active"
   },
   {
     "email": "teacher@example.com",
-    "password": "teacherpassword",
+    "password": "password123",
     "name": "Teacher User",
     "role": "teacher",
     "status": "active"
