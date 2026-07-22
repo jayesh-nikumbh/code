@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [tailwindcss(),react()],
   server: {
     // host: true,
-    port: 8083,
+    // port: 8083,
     // strictPort: true,
     // hmr: {
     //   clientPort: 8083

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Moon, Sun, Bell, X, Eye, EyeOff, ScrollText, User, Menu } from "lucide-react";
+import { Moon, Sun, Bell, X, Menu } from "lucide-react";
+import PropTypes from "prop-types";
 import ProfileSidebar from "./ProfileSidebar";
 import NotificationSidebar from "./NotificationSidebar";
 import notificationsService from "../../api/services/notifications";
@@ -55,13 +56,13 @@ export default function Navbar({ isAdmin = false }) {
     syncUser();
 
     // Listen for custom profile update events (same tab)
-    window.addEventListener('profileUpdated', syncUser);
+    globalThis.addEventListener('profileUpdated', syncUser);
     
     // Handle manual state update (within the tab)
     const interval = setInterval(syncUser, 1500);
 
     return () => {
-      window.removeEventListener('profileUpdated', syncUser);
+      globalThis.removeEventListener('profileUpdated', syncUser);
       clearInterval(interval);
     };
   }, []);
@@ -97,8 +98,8 @@ export default function Navbar({ isAdmin = false }) {
     if (user || isAdmin) fetchData();
 
     // Listen for manual updates (from Notifications page)
-    window.addEventListener('notificationsUpdated', fetchData);
-    return () => window.removeEventListener('notificationsUpdated', fetchData);
+    globalThis.addEventListener('notificationsUpdated', fetchData);
+    return () => globalThis.removeEventListener('notificationsUpdated', fetchData);
   }, [user, isAdmin]);
 
   const unreadCount = notifications.filter(n => !n.isSeen).length;
@@ -127,6 +128,24 @@ export default function Navbar({ isAdmin = false }) {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const getRoleCapsuleClass = () => {
+    if (userRole === 'admin') return 'capsule-admin';
+    if (userRole === 'teacher') return 'capsule-teacher';
+    return 'capsule-student';
+  };
+
+  const getProfileAuraClass = () => {
+    if (userRole === 'admin') return 'aura-admin scale-110';
+    if (userRole === 'teacher') return 'aura-teacher';
+    return 'aura-student';
+  };
+
+  const getIndicatorOrbClass = () => {
+    if (userRole === 'admin') return 'bg-amber-400';
+    if (userRole === 'teacher') return 'bg-cyan-400';
+    return 'bg-blue-400';
+  };
+
   return (
     <nav className="w-full max-w-full h-18 bg-[#14245C] dark:bg-[#0B1957] border-b border-white/10 flex items-center justify-between px-2 md:px-10 sticky top-0 z-50 overflow-hidden">
       {/* Left Section*/}
@@ -139,8 +158,11 @@ export default function Navbar({ isAdmin = false }) {
           <Menu className="w-6 h-6" />
         </button>
 
-        <div className="bg-[#A9C4FF] p-1.5 md:p-2 rounded-lg shadow-md transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl active:scale-95 cursor-pointer font-bold shrink-0 hover-glow"
-          onClick={() => navigate(isAdmin ? "/admin/dashboard" : "/dashboard")}>
+        <button 
+          type="button"
+          className="bg-[#A9C4FF] p-1.5 md:p-2 rounded-lg shadow-md transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl active:scale-95 cursor-pointer font-bold shrink-0 hover-glow border-none outline-none"
+          onClick={() => navigate(isAdmin ? "/admin/dashboard" : "/dashboard")}
+        >
           <svg
             className="w-6 h-6 md:w-7 md:h-7 text-[#0B1957]"
             fill="none"
@@ -154,7 +176,7 @@ export default function Navbar({ isAdmin = false }) {
               d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
             />
           </svg>
-        </div>
+        </button>
         <h1 className="text-white text-base md:text-xl font-bold tracking-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-[120px] sm:max-w-none">
           Sanyoj<span className="hidden sm:inline"> - ICT Catalyst Portal</span>
         </h1>
@@ -198,27 +220,26 @@ export default function Navbar({ isAdmin = false }) {
       <div className="flex items-center justify-end gap-1.5 md:gap-4 shrink-0">
 
         {/* Premium Role Capsule (Moved to Left of Theme Toggle) */}
-        <div className={`
-          hidden sm:flex premium-role-capsule
-          ${userRole === 'admin' ? 'capsule-admin' : userRole === 'teacher' ? 'capsule-teacher' : 'capsule-student'}
-        `}>
+        <div className={`hidden sm:flex premium-role-capsule ${getRoleCapsuleClass()}`}>
            <span className="capitalize">{userRole}</span>
         </div>
 
         {/* Theme Toggle */}
-        <div
+        <button
+          type="button"
           onClick={handleToggleTheme}
-          className="w-10 h-10 bg-[#1E347F] rounded-lg flex items-center justify-center hover:bg-[#243C94] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110 active:scale-90 cursor-pointer group"
+          className="w-10 h-10 bg-[#1E347F] rounded-lg flex items-center justify-center hover:bg-[#243C94] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110 active:scale-90 cursor-pointer group border-none outline-none"
         >
           {isDark ? (
             <Sun className="text-white w-5 h-5 group-hover:rotate-12 transition-transform" />
           ) : (
             <Moon className="text-white w-5 h-5 group-hover:-rotate-12 transition-transform" />
           )}
-        </div>
+        </button>
 
         {/* Notification */}
-        <div
+        <button
+          type="button"
           onClick={() => {
             if (userRole === "admin" || userRole === "teacher") {
               const unseenIds = notifications.filter(n => !n.isSeen);
@@ -230,7 +251,7 @@ export default function Navbar({ isAdmin = false }) {
               setShowNotifications(true);
             }
           }}
-          className="relative w-10 h-10 bg-[#1E347F] rounded-lg flex items-center justify-center hover:bg-[#243C94] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110 active:scale-90 cursor-pointer group"
+          className="relative w-10 h-10 bg-[#1E347F] rounded-lg flex items-center justify-center hover:bg-[#243C94] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110 active:scale-90 cursor-pointer group border-none outline-none"
         >
           <Bell className="text-white w-5 h-5 group-hover:animate-swing transition-transform" />
           {unreadCount > 0 && (
@@ -242,7 +263,7 @@ export default function Navbar({ isAdmin = false }) {
               {unreadCount}
             </span>
           )}
-        </div>
+        </button>
 
         <NotificationSidebar
           isOpen={showNotifications}
@@ -253,30 +274,25 @@ export default function Navbar({ isAdmin = false }) {
 
         {/* User Profile & Role Aura */}
         <div className="relative group">
-          <div className={`
-            profile-aura-container transition-all duration-500
-            ${userRole === 'admin' ? 'aura-admin scale-110' : userRole === 'teacher' ? 'aura-teacher' : 'aura-student'}
-          `}>
+          <div className={`profile-aura-container transition-all duration-500 ${getProfileAuraClass()}`}>
             {/* Animated Ring */}
             <div className="aura-ring"></div>
             
             {/* Role Pulse (Student Only) */}
             {userRole === 'student' && <div className="aura-student-pulse"></div>}
 
-            <div
+            <button
+              type="button"
               onClick={() => setShowProfileSidebar(true)}
-              className="relative w-10 h-10 bg-[#A9C4FF] dark:bg-[#1E347F] text-[#14245C] dark:text-[#9ECCFA] font-black flex items-center justify-center rounded-full cursor-pointer hover:ring-2 hover:ring-white/30 transition-all shadow-inner z-10 overflow-hidden"
+              className="relative w-10 h-10 bg-[#A9C4FF] dark:bg-[#1E347F] text-[#14245C] dark:text-[#9ECCFA] font-black flex items-center justify-center rounded-full cursor-pointer hover:ring-2 hover:ring-white/30 transition-all shadow-inner z-10 overflow-hidden border-none outline-none"
             >
               <span className="text-xs sm:text-sm tracking-tighter">
                 {getInitials(user?.name)}
               </span>
               
               {/* Floating Role Indicator Orb */}
-              <div className={`
-                absolute -top-1 -right-1 w-3 h-3 rounded-full border-2 border-[#14245C] dark:border-[#0B1957] shadow-sm
-                ${userRole === 'admin' ? 'bg-amber-400' : userRole === 'teacher' ? 'bg-cyan-400' : 'bg-blue-400'}
-              `}></div>
-            </div>
+              <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full border-2 border-[#14245C] dark:border-[#0B1957] shadow-sm ${getIndicatorOrbClass()}`}></div>
+            </button>
           </div>
 
           {/* Tooltip on Hover */}
@@ -299,9 +315,15 @@ export default function Navbar({ isAdmin = false }) {
         className={`fixed inset-0 z-100 lg:hidden transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         {/* Backdrop */}
-        <div
-          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        <button
+          className="absolute inset-0 w-full h-full bg-black/50 backdrop-blur-sm border-none cursor-default focus:outline-none"
           onClick={() => setIsMobileMenuOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              setIsMobileMenuOpen(false);
+            }
+          }}
+          aria-label="Close mobile menu"
         />
 
         {/* Sidebar */}
@@ -386,3 +408,18 @@ function MobileNavItem({ to, label, onClick }) {
     </NavLink>
   );
 }
+
+Navbar.propTypes = {
+  isAdmin: PropTypes.bool
+};
+
+NavItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
+};
+
+MobileNavItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
+};

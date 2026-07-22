@@ -4,7 +4,7 @@ import attendanceService from "../../../api/services/attendance";
 const months = ["All Months", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 export default function AttendanceHistory() {
-    const [selectedMonth, setSelectedMonth] = useState("March");
+    const [selectedMonth, setSelectedMonth] = useState(months[new Date().getMonth() + 1]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [records, setRecords] = useState([]);
     const [loading, setLoading] = useState(true);

@@ -44,7 +44,7 @@ const attendanceService = {
         if (API_CONFIG.IS_MOCK) {
             const data = await import('../../data/attendance_calendar.json');
             return new Promise((resolve) => {
-                setTimeout(() => resolve(data.default), 500);
+                setTimeout(() => resolve(data.default || data), 500);
             });
         }
 
@@ -59,7 +59,7 @@ const attendanceService = {
         if (API_CONFIG.IS_MOCK) {
             const data = await import('../../data/attendance_history.json');
             return new Promise((resolve) => {
-                setTimeout(() => resolve(data.default), 500);
+                setTimeout(() => resolve(data.default || data), 500);
             });
         }
 
@@ -72,7 +72,7 @@ const attendanceService = {
         if (API_CONFIG.IS_MOCK) {
             const data = await import('../../data/attendance_trend.json');
             return new Promise((resolve) => {
-                setTimeout(() => resolve(data.default), 500);
+                setTimeout(() => resolve(data.default || data), 500);
             });
         }
 
@@ -85,7 +85,7 @@ const attendanceService = {
         if (API_CONFIG.IS_MOCK) {
             const data = await import('../../data/admin/attendance_records.json');
             return new Promise((resolve) => {
-                setTimeout(() => resolve(data.default), 600);
+                setTimeout(() => resolve(data.default || data), 600);
             });
         }
 
